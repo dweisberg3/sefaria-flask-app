@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Commentaries</title>
+</head>
+<body>
+    <h1>Commentary List</h1>
+    {% if names %}
+        <ul>
+            {% for name in names %}
+                <li>{{ name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No names available.</p>
+    {% endif %}
+
+    <nav>
+        <a href="/" class="button">Home</a>
+        
+    </nav>
+</body>
+</html>

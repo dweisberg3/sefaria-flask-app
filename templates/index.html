@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Info</title>
+   
+</head>
+<body>
+    <div class="container">
+        <h1>Select a Part of Shas</h1>
+        {% if parts %}
+        <form method="GET" action="/names">
+            <select name="gemara">
+                {% for part in parts %}
+                <option value={{part}}>{{part}}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Get List of Commentaries</button>
+        </form>
+      
+        {% endif %}
+    </div>
+</body>
+</html>

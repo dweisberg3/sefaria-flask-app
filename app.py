@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from get import get_text
-from get_commentaries import get_commentary, get_gemara_sections
+from get_commentaries import get_commentary_names, get_gemara_sections, get_commentary_text
 
 
 
@@ -23,25 +23,13 @@ def index():
 @app.route('/names', methods=['GET'])
 def get_names():
     print(f"the gemara part   {request.args.get("gemara")}")
-    names = get_commentary(request.args.get("gemara"))
+    names = get_commentary_names(request.args.get("gemara"))
     return render_template('names.html',names=names)
-    # return f"""
-    # <h1> These are the names of commentaries</h1>
-    # <p> {names} <\p>
-    # """
-# def index():
-#     fruit = None
-#     article_text = None
 
-#     if request.method == 'POST':
-#         fruit = request.form.get('fruit')
-#         page = wiki_wiki.page(fruit)
-#         if page.exists():
-#             article_text = page.text
-#         else:
-#             article_text = "Sorry, the Wikipedia page for this fruit does not exist."
-
-#     return render_template('index.html', fruit=fruit, article_text=article_text)
+@app.route('/texts', methods=['GET'])
+def get_text():
+    text =get_commentary_text(request.args.get("name"))
+    return render_template('text.html',text=text)
 
 if __name__ == '__main__':
     app.run(debug=True)

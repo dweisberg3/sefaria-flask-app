@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>text</title>
+</head>
+<body>
+    <h1>Text</h1>
+    {% if text %}
+        <p>{{text | safe}}</p>
+    {% else %}
+        <p>No text available.</p>
+    {% endif %}
+
+    <nav>
+        <a href="/" class="button">Home</a>
+        
+    </nav>
+</body>
+</html>

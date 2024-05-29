@@ -8,7 +8,7 @@
     {% if names %}
         <ul>
             {% for name in names %}
-                <li>{{ name }}</li>
+            <li><a href="/texts?name={{ name }}">{{ name }}</a></li>
             {% endfor %}
         </ul>
     {% else %}

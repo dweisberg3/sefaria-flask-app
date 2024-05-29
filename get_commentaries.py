@@ -58,7 +58,7 @@ def get_gemara_sections():
         sections += get_tractate_pages(tractate,pages)
     return sections
 
-def get_commentary(part):
+def get_commentary_names(part):
     endpoint = f"https://www.sefaria.org/api/texts/{part}"
 
     # Add parameters to include commentary
@@ -89,3 +89,13 @@ def get_commentary(part):
             
     else:
         return("Error:", response.status_code, response.text)
+    
+
+def get_commentary_text(commentary_name):
+    
+    url = f"https://www.sefaria.org/api/v3/texts/{commentary_name}"
+    print(f'the url {' '.join(url.split("%20"))}')
+    response = requests.get(url)
+    content = response.json()
+    return ''.join(content['versions'][0]['text'])
+    

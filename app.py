@@ -22,7 +22,7 @@ def index():
 
 @app.route('/names', methods=['GET'])
 def get_names():
-    print(f"the gemara part   {request.args.get("gemara")}")
+    print(f'the gemara part   {request.args.get("gemara")}')
     names = get_commentary_names(request.args.get("gemara"))
     return render_template('names.html',names=names)
 
@@ -32,4 +32,7 @@ def get_text():
     return render_template('text.html',text=text)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True) ## for dev
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=5000)
+    # app.run(host='0.0.0.0', port=80) ## for prod

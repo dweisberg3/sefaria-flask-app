@@ -94,7 +94,7 @@ def get_commentary_names(part):
 def get_commentary_text(commentary_name):
     
     url = f"https://www.sefaria.org/api/v3/texts/{commentary_name}"
-    print(f'the url {' '.join(url.split("%20"))}')
+    print(f'the url {" ".join(url.split("%20"))}')
     response = requests.get(url)
     content = response.json()
     return ''.join(content['versions'][0]['text'])
